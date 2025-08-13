@@ -377,6 +377,12 @@
         outline: none;
         }
 
+        #ttsToggle {
+        padding: 10px 14px;
+        min-width: 100px;
+        text-align: center;
+        }
+
         .bubble {
         max-width: 86%;
         padding: 14px 16px;
