@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>ذكّر | موسوعة احكام فقهية قابلة للتحسين والتطوير</title>
+    <meta name="description" content="موسوعة أحكام شرعية بالعربية — بحث فوري وشات ذكي مع دليل من القرآن والسنة." />
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="wrap">
+        <header class="animate__animated animate__fadeInDown">
+            <div class="brand">
+                <div class="logo">ذكّر</div>
+                <div>
+                    <h1>دليل الحلال والحرام</h1>
+                    <div class="lead">موسوعة أحكام شرعية — بحث فوري وشات ذكي مع أدلة من القرآن والسنة</div>
+                </div>
+            </div>
+            <div class="version-badge">
+                <div class="mini">نسخة مبدئية قابلة للتحسين</div>
+            </div>
+        </header>
+
+        <div class="grid">
+            <!-- LEFT: Search & results -->
+            <section class="card animate__animated animate__fadeInLeft" aria-labelledby="searchTitle">
+                <div class="search-row">
+                    <input id="question" type="text" placeholder="اكتب مسألة أو كلمة (مثال: التدخين، زكاة الذهب، النميمة)..." autocomplete="off" aria-label="حقل البحث" />
+                    <button id="askBtn" aria-label="اعرف الحكم" class="btn-primary">
+                        <span>اعرف الحكم</span>
+                    </button>
+                    <button id="clearBtn" class="ghost" aria-label="مسح">
+                        <svg viewBox="0 0 24 24" width="18" height="18">
+                            <path fill="currentColor" d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4l5.6 5.6L5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6z"/>
+                        </svg>
+                    </button>
+                </div>
+
+                <div id="suggestions" class="suggestions" aria-hidden="false" role="listbox"></div>
+
+                <div id="result" role="region" aria-live="polite">
+                    <div class="welcome-message">
+                        <div class="welcome-icon">
+                            <svg viewBox="0 0 24 24" width="40" height="40">
+                                <path fill="currentColor" d="M12 3L1 12h3v8h6v-6h2v6h6v-8h3L12 3zm0 2.8L18 10v8h-2v-6H8v6H6v-8l6-4.2z"/>
+                            </svg>
+                        </div>
+                        <div class="mini">اكتب سؤالاً واضغط "اعرف الحكم" أو اختر اقتراحاً لعرض الحكم والدليل.</div>
+                    </div>
+                </div>
+
+                <div class="result-actions">
+                    <button id="showAll" class="ghost">
+                        <svg viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor" d="M3 13h2v-2H3v2zm0 4h2v-2H3v2zm0-8h2V7H3v2zm4 4h14v-2H7v2zm0 4h14v-2H7v2zM7 7v2h14V7H7z"/>
+                        </svg>
+                        <span>عرض كل الأحكام</span>
+                    </button>
+                    <button id="exportBtn" class="ghost">
+                        <svg viewBox="0 0 24 24" width="16" height="16">
+                            <path fill="currentColor" d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z"/>
+                        </svg>
+                        <span>حفظ JSON</span>
+                    </button>
+                </div>
+            </section>
+
+            <!-- RIGHT: Chat -->
+            <aside class="card chat-card animate__animated animate__fadeInRight" aria-labelledby="chatTitle">
+                <div class="chat-top">
+                    <div>
+                        <h3 style="margin:0">
+                            <svg viewBox="0 0 24 24" width="20" height="20" style="vertical-align:middle;margin-left:4px">
+                                <path fill="currentColor" d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/>
+                            </svg>
+                            شات ذكي
+                        </h3>
+                        <div class="mini">اكتب سؤالك بالعربية وسأبحث في القاعدة وأعرض الحكم والدليل.</div>
+                    </div>
+                    <div>
+                        <button id="ttsToggle" class="ghost" aria-pressed="false">
+                            <span>تشغيل الصوت</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div id="chatHistory" class="chat-history" aria-live="polite">
+                </div>
+
+                <div class="chat-input">
+                    <textarea id="chatInput" placeholder="مثال: هل التدخين حرام؟ او ما حكم الغيبة؟" aria-label="حقل الشات"></textarea>
+                    <div class="chat-buttons">
+                        <button id="sendChat" class="btn-primary">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor" d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/>
+                            </svg>
+                        </button>
+                        <button id="clearChat" class="ghost">
+                            <svg viewBox="0 0 24 24" width="18" height="18">
+                                <path fill="currentColor" d="M19 6.4L17.6 5 12 10.6 6.4 5 5 6.4l5.6 5.6L5 17.6 6.4 19l5.6-5.6 5.6 5.6 1.4-1.4-5.6-5.6z"/>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="animate__animated animate__fadeInUp">
+            <div>يمكن توسيع القاعدة أو ربط الشات بمصادر فقهية لاحقًا</div>
+        </footer>
+    </div>
+
+    <div id="toast" class="toast"></div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
